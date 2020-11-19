@@ -3,6 +3,6 @@
 * springboot + stomp
 
 1. 每隔500ms广播当前玩家的姓名和分数
-2. 后端以jsonString格式返回 一个维护所有玩家的列表，  类似[{'name':'李4','score':'200'},{'name':'王5','score':'30'}]
+2. 同时后端以jsonString格式返回 一个维护所有玩家的列表，  类似[{'name':'李4','score':'200'},{'name':'王5','score':'30'}]
 
 ![1](1.PNG)
