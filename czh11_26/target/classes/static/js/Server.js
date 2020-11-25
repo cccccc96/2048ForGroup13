@@ -1,5 +1,7 @@
 var stompClient = null;
 /*记录玩家们的列表（姓名，分数，游戏盘）*/
+/* 比如 [{"name":"n75q(randomForTest)","score":"0.0","playBoard":[[0,0,0,2],[0,0,0,0],[0,0,0,2],[0,0,0,0]]}
+,{"name":"y7zv(randomForTest)","score":"0.0","playBoard":[[0,2,0,0],[0,0,0,2],[0,0,0,0],[0,0,0,0]]}]*/
 var myList;
 
 //连接服务器
@@ -18,7 +20,7 @@ function connect() {
 
 /*发送数据到服务其端*/
 function sendScore(name ,score,arr) {
-    /* 编辑arr */
+    /* 提取arr */
     var playBoard=new Array();
     var i, j;
     for (i = 0; i < 4; i++) {
@@ -27,7 +29,7 @@ function sendScore(name ,score,arr) {
             playBoard[i][j]=arr[i][j].value;
         }
     }
-    console.log(playBoard[1][1]);
+  
 
     console.log(JSON.stringify({
         'name': name,
@@ -71,23 +73,30 @@ function updateRanking(){
 
 /*每当对方做出操作，更新缩略图*/
 function updateBoard(){
-
+    var opponentBoard=new Array();
     /*判断一下哪个是对手的游戏盘*/
     var i,j;
     /*若当前页面的名字不等于myList[0].name，则myList[0].playBoard是对手的游戏盘（4*4的二维数组）*/
     if(myList[0].name!=g.name){
         for(i=0;i<4;i++){
+            opponentBoard[i]=new Array();
             for(j=0;j<4;j++)
-                console.log(myList[0].playBoard[i][j]);
+                opponentBoard[i][j]=myList[0].playBoard[i][j];
         }
     }
     /*反之，myList[1].playBoard是对手的游戏盘*/
     else{
         for(i=0;i<4;i++){
+            opponentBoard[i]=new Array();
             for(j=0;j<4;j++)
-                console.log(myList[1].playBoard[i][j]);
+                opponentBoard[i][j]=myList[1].playBoard[i][j];
         }
     }
+
+    /*画出对手的缩略图*/
+    for(i=0;i<4;i++)
+        for(j=0;j<4;j++)
+            console.log(opponentBoard[i][j]);
 
 }
 
