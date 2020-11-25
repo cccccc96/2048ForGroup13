@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>2048</title>
+	<!-- 兼容性配置 -->
+	<meta name="renderer" content="webkit"> <!-- 360手机优先使用chrome内核 -->
+	<meta name="screen-orientation" content="portrait"> <!-- UC强制竖屏 -->
+	<meta name="x5-orientation" content="portrait"> <!-- QQ强制竖屏 -->
+	<meta name="browsermode" content="application"> <!-- UC浏览器应用模式 -->
+	<meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度转载页面加载流氓广告 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!-- 优先使用最高IE内核和chrome内核 -->
+	<meta name="viewport" content="width-device,user-scalable=no"> <!-- 禁止用户修改网页大小 -->
+	<meta name="google" value="notranslate"> <!-- 禁用google翻译网页 -->
+	<meta name="robots" content="index,follow"> <!-- 网页搜索引擎方式 -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<!-- CSS样式调用 -->
+	<link href="css/2048.css" rel="stylesheet">
+	<link href="css/Three_Parts.css" rel="stylesheet">
+	<link href="css/Moon.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="all_parts">
+
+		<!-- 顶部title -->
+		<div class="left_part">
+
+			<!-- 左上角分数盒子 -->
+			<div class="score_box">
+				<b>score:</b><b id="score"></b>
+			</div>
+
+			<!-- 重置排行榜，相关选项放在这里面，按钮样式之后重置 -->
+			<div class="ranking_box">
+				<div class="ranking_head">排行榜</div>
+				<div class="ranking_content">
+					<div class="ranking_items">
+						<div class="ranking_rank">1</div>
+						<div class="ranking_name">Biden</div>
+						<div class="ranking_score">999</div>
+					</div>
+					<div class="ranking_items">
+						<div class="ranking_rank">2</div>
+						<div class="ranking_name">Trump</div>
+						<div class="ranking_score">998</div>
+					</div>
+					<button class="btn" id="button-cell-1" type="button">重新开始</button>
+					<button class="btn" id="button-cell-1" type="button">单人模式</button>
+					<button class="btn" id="button-cell-1" type="button">双人匹配</button>
+				</div>
+			</div>
+
+			<!-- 建议放一个消息栏 -->
+			<div class="news_box">
+				<div class="news">
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- 2048游戏区 -->
+		<!-- 这里其实有一个游戏区大小适配的问题 -->
+		<div class="center_part">
+			<div class="cell_wrap">
+				<div class="box">
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 对手格子，拓展区 -->
+		<div class="right_part">
+			<!-- 兔子动画 -->
+			<div class="circle">
+				<div class="moon"></div>
+				<div class="moon2"></div>
+				<div class="crater1"></div>
+				<div class="crater2"></div>
+				<div class="crater3"></div>
+				<div class="land1"></div>
+				<div class="land2"></div>
+				<div class="land3"></div>
+				<div class="land4"></div>
+				<div class="shadow"></div>
+				<div class="rabbit"></div>
+				<div class="ear1"></div>
+				<div class="ear2"></div>
+				<div class="tail"></div>
+				<div class="cloud1"></div>
+				<div class="cloud2"></div>
+				<div class="cloud3"></div>
+				<div class="cloud4"></div>
+			</div>
+
+			<!-- 对手视图 -->
+			<div class="cell_wrap2">
+				<div class="box2">
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+					<div class="cell2"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="js/2048.js"></script>
+</body>
+
+</html>
+<!--
+//加排行榜
+-->
